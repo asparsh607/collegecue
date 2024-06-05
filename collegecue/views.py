@@ -133,7 +133,7 @@ class Login(View):
             password = login.password
             if not password:
                 return JsonResponse({'error': 'Please enter password'}, status=400)
-            
+
             user = new_user.objects.filter(email=check_mail).last()
             if not user:
                 return JsonResponse({'error': 'Email id not found'}, status=404)
@@ -158,7 +158,7 @@ class Forgot_view(View):
                 return JsonResponse({'error':'Please enter correct emial id'})
             if not user:
                 return JsonResponse({'message':'This mail does not exists'})
-            new_otp = ''.join([str(secrets.randbelow(10)) for _ in range(4)]) 
+            new_otp = ''.join([str(secrets.randbelow(10)) for _ in range(4)])
             request.session['otp'] = new_otp
             request.session['email'] = EMAIL
             request.session.save()
@@ -182,7 +182,7 @@ class Verify_view(View):
         print(form.is_valid())
         if form.is_valid():
             verify=form.save()
-            otp_entered=verify.otp 
+            otp_entered=verify.otp
             stored_otp = request.session.get('otp')
             stored_email = request.session.get('email')
             
