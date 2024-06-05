@@ -37,7 +37,7 @@ class new_user(models.Model):
 
 class Meta:
     db_table="collegecuefinal_data"
-    
+
 class CompanyInCharge(models.Model):
     company_name = models.CharField(max_length=255,default="null")
     official_email = models.EmailField(unique=True,default="Null")
