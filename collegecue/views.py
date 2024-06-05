@@ -205,7 +205,7 @@ def resend_otp(request):
 
         request.session['otp'] = new_otp
         request.session['email'] = email
-        
+
         subject = 'Your New OTP'
         message = f'Your new OTP is: {new_otp}'
         sender_email = settings.EMAIL_HOST_USER
