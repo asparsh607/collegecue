@@ -76,7 +76,7 @@ class Subscriber(models.Model):
 
 class Forgot(models.Model):
     email = models.EmailField(unique=False)
-    
+
 class Verify(models.Model):
     otp=models.CharField(max_length=4)
 
