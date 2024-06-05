@@ -244,7 +244,7 @@ class RegisterCompanyInChargeView(View):
             data = json.loads(request.body.decode('utf-8'))
         except json.JSONDecodeError:
             return JsonResponse({'success': False, 'errors': 'Invalid JSON'}, status=400)
-        
+
         form = CompanyInChargeForm(data)
         if form.is_valid():
             company = form.save(commit=False)
