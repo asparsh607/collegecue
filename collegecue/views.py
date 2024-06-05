@@ -162,7 +162,7 @@ class Forgot_view(View):
             request.session['otp'] = new_otp
             request.session['email'] = EMAIL
             request.session.save()
-            
+
             subject = 'Your New OTP'
             message = f'Your new OTP is: {new_otp}'
             sender_email = settings.EMAIL_HOST_USER
