@@ -88,7 +88,7 @@ def send_data_to_google_sheet4(consultant_name,official_email,country_code,mobil
                 "agreedtoterms":agreed_to_terms,
                 'sheetName':sheetName
             }
-    
+
     response = requests.post(url, json=details, timeout=9000)
     res = response.text
     return JsonResponse({'message': res} , safe = False)
