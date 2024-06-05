@@ -270,7 +270,7 @@ class RegisterCompanyInChargeView(View):
         else:
             errors = dict(form.errors.items())
             return JsonResponse({'success': False, 'errors': errors}, status=400)
-        
+
 @method_decorator(csrf_exempt, name='dispatch')
 class RegisterUniversityInChargeView(View):
     def post(self, request):
