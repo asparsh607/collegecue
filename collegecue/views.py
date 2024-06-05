@@ -185,7 +185,7 @@ class Verify_view(View):
             otp_entered=verify.otp
             stored_otp = request.session.get('otp')
             stored_email = request.session.get('email')
-            
+
             if stored_email and stored_otp:
                 if  stored_otp == otp_entered:
                     del request.session['otp']
