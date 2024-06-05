@@ -14,7 +14,7 @@ urlpatterns = [
     path('register/university/', RegisterUniversityInChargeView.as_view(), name='register_university_incharge_api'),
     path('register/consultant/', RegisterConsultantView.as_view(), name='register_consultant_incharge_api'),
     path('search/', views.search, name='search'),
-    path('job_portal', Subscriber.as_view(), name='job_portal'),  
+    path('job_portal', Subscriber.as_view(), name='job_portal'),
     path('verify_otp1',Verify.as_view(),name="verify_otp1"),
     path('resend-otp/', views.resend_otp, name='resend_otp'),
 ]
