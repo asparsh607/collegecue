@@ -2,7 +2,7 @@ from django.contrib import admin # type: ignore
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin # type: ignore
 from django.contrib.auth.forms import UserChangeForm # type: ignore
 from .models import CompanyInCharge,Consultant,UniversityInCharge,CustomUser,OTP,new_user,Forgot,Forgot2,Verify,Subscriber,Subscriber1
-from .utils import *
+from .utils import is_superadmin
 
 class CustomUserChangeForm(UserChangeForm):
     class Meta(UserChangeForm.Meta):
@@ -15,6 +15,7 @@ class CustomUserAdmin(BaseUserAdmin):
         if not obj.pk and is_superadmin(request.user):
             obj.is_subadmin = True
         super().save_model(request, obj, form, change)
+
 
 admin.site.register(CompanyInCharge)
 admin.site.register(Consultant)
