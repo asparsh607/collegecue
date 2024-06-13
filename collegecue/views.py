@@ -4,13 +4,16 @@ from django.http import JsonResponse # type: ignore
 from django.conf import settings # type: ignore
 from django.middleware.csrf import get_token # type: ignore
 from django.views.decorators.csrf import csrf_exempt, csrf_protect # type: ignore
-from .utils import  send_data_to_google_sheet3,fetch_data_from_google_sheets,send_data_to_google_sheet4,send_data_to_google_sheet2,send_data_to_google_sheets
+from .utils import (send_data_to_google_sheet3,fetch_data_from_google_sheets,send_data_to_google_sheet4,
+send_data_to_google_sheet2,send_data_to_google_sheets)
 import secrets,json,requests # type: ignore
 from .models import new_user
 from django.contrib.auth.hashers import make_password # type: ignore
 from django.utils.decorators import method_decorator # type: ignore
 from django.views import View # type: ignore
-from .forms import NextForm,RegisterForm,UniversityInChargeForm,CompanyInChargeForm,ForgotForm,LoginForm,SubscriptionForm1,ConsultantForm,Forgot2Form,VerifyForm,SubscriptionForm
+from .forms import (NextForm,RegisterForm,UniversityInChargeForm,CompanyInChargeForm,ForgotForm,
+LoginForm,SubscriptionForm1,ConsultantForm,Forgot2Form
+,VerifyForm,SubscriptionForm)
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger # type: ignore
 
 def home(request):
