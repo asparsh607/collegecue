@@ -37,7 +37,7 @@ names==0.3.0
 oauthlib==3.2.2
 packaging==23.2
 phone_email_auth==0.13
-Pillow==10.2.0
+Pillow==10.3.0
 platformdirs==3.11.0
 psycopg2==2.9.3
 pyasn1==0.5.1
@@ -66,6 +66,6 @@ twilio==9.0.0
 typing_extensions==4.8.0
 tzdata==2023.3
 uritemplate==4.1.1
-urllib3==1.26.17
+urllib3==1.26.18
 virtualenv==20.24.6
 yarl==1.9.4
