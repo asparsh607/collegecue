@@ -1,7 +1,7 @@
 from django.contrib import admin # type: ignore
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin # type: ignore
 from django.contrib.auth.forms import UserChangeForm # type: ignore
-from .models import *
+from .models import CompanyInCharge, Consultant, UniversityInCharge, CustomUser, CustomUserAdmin, OTP, new_user, Forgot, Forgot2, Verify, Subscriber, Subscriber1
 from .utils import *
 
 class CustomUserChangeForm(UserChangeForm):
