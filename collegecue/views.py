@@ -4,13 +4,13 @@ from django.http import JsonResponse # type: ignore
 from django.conf import settings # type: ignore
 from django.middleware.csrf import get_token # type: ignore
 from django.views.decorators.csrf import csrf_exempt, csrf_protect # type: ignore
-from .utils import *
+from .utils import  send_data_to_google_sheet3,fetch_data_from_google_sheets,send_data_to_google_sheet4,send_data_to_google_sheet2,send_data_to_google_sheets
 import secrets,json,requests # type: ignore
-from .models import *
+from .models import new_user,
 from django.contrib.auth.hashers import make_password # type: ignore
 from django.utils.decorators import method_decorator # type: ignore
 from django.views import View # type: ignore
-from .forms import *
+from .forms import NextForm,RegisterForm,UniversityInChargeForm,CompanyInChargeForm,ForgotForm,LoginForm,SubscriptionForm1,ConsultantForm,Forgot2Form,VerifyForm,SubscriptionForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger # type: ignore
 
 def home(request):
@@ -197,23 +197,20 @@ class Verify_view(View):
 
 @csrf_protect
 def resend_otp(request):
-        csrf_token = get_token(request)
-        if not csrf_token:
-            return JsonResponse({'error': 'CSRF token missing'}, status=403)
-        email = request.session.get('email')
-        new_otp = ''.join([str(secrets.randbelow(10)) for _ in range(4)])
-
-        request.session['otp'] = new_otp
-        request.session['email'] = email
-
-        subject = 'Your New OTP'
-        message = f'Your new OTP is: {new_otp}'
-        sender_email = settings.EMAIL_HOST_USER
-        recipient_email = [email]
-
-        send_mail(subject, message, sender_email, recipient_email)
-
-        return JsonResponse({'message': 'New OTP sent successfully'})
+    csrf_token = get_token(request)
+    if not csrf_token:
+        return JsonResponse({'error': 'CSRF token missing'}, status=403)
+    email = request.session.get('email')
+    new_otp = ''.join([str(secrets.randbelow(10)) for _ in range(4)])
+    request.session['otp'] = new_otp
+    request.session['email'] = email
+    subject = 'Your New OTP'
+    message = f'Your new OTP is: {new_otp}'
+    sender_email = settings.EMAIL_HOST_USER
+    recipient_email = [email]
+    
+    send_mail(subject, message, sender_email, recipient_email)
+    return JsonResponse({'message': 'New OTP sent successfully'})
 
 @method_decorator(csrf_exempt, name='dispatch')
 class Forgot2_view(View):
