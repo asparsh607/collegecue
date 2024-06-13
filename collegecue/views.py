@@ -208,7 +208,6 @@ def resend_otp(request):
     message = f'Your new OTP is: {new_otp}'
     sender_email = settings.EMAIL_HOST_USER
     recipient_email = [email]
-    
     send_mail(subject, message, sender_email, recipient_email)
     return JsonResponse({'message': 'New OTP sent successfully'})
 
